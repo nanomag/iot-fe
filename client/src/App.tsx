@@ -1,16 +1,13 @@
 import { useState, useEffect, useRef } from 'react'
-
-interface Sensor {
-  id: string
-  name: string
-  connected: boolean
-  unit: string
-  value: string
-}
+import ToggleButton from './components/ToggleButton'
+import SensorCard from './components/SensorCard'
+import { Sensor } from './types'
+import './App.css'
 
 export default function App() {
   const connection = useRef<WebSocket | null>(null)
   const [sensors, setSensors] = useState<Sensor[]>([])
+  const [showAllSensors, setShowAllSensors] = useState(true)
 
   useEffect(() => {
     const socket = new WebSocket('ws://localhost:3000')
@@ -69,25 +66,31 @@ export default function App() {
     }
   }
 
+  function toggleSensorView() {
+    setShowAllSensors((prev) => !prev)
+  }
+
   return (
-    <div>
-      {sensors.map((sensor) => (
-        <div key={sensor.id}>
-          <strong>{sensor.name}:</strong> {sensor.value} {sensor.unit}
-          <button
-            onClick={() => connectSensor(sensor.id)}
-            disabled={sensor.connected}
-          >
-            Connect
-          </button>
-          <button
-            onClick={() => disconnectSensor(sensor.id)}
-            disabled={!sensor.connected}
-          >
-            Disconnect
-          </button>
-        </div>
-      ))}
+    <div className="container">
+      <h1>IOT Sensors</h1>
+
+      <ToggleButton
+        showAllSensors={showAllSensors}
+        toggleSensorView={toggleSensorView}
+      />
+
+      <div className="sensors-container">
+        {sensors
+          .filter((sensor) => (showAllSensors ? true : sensor.connected))
+          .map((sensor) => (
+            <SensorCard
+              key={sensor.id}
+              sensor={sensor}
+              connectSensor={connectSensor}
+              disconnectSensor={disconnectSensor}
+            />
+          ))}
+      </div>
     </div>
   )
 }
