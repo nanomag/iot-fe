@@ -27,7 +27,7 @@ export default function SensorCard({
         </small>
       </p>
 
-      <div>
+      <div className="action-buttons">
         <button
           className="action-button connect-button"
           onClick={() => connectSensor(sensor.id)}
