@@ -29,9 +29,19 @@ export default function App() {
     return () => socket.close()
   }, [])
 
-  return sensors.map((sensor) => (
-    <p>
-      {sensor.name} - {sensor.connected.toString()}
-    </p>
-  ))
+  return (
+    <div>
+      {sensors.map((sensor) => (
+        <div key={sensor.id}>
+          <strong>{sensor.name}:</strong> {sensor.value} {sensor.unit}
+          <button onClick={() => {}} disabled={sensor.connected}>
+            Connect
+          </button>
+          <button onClick={() => {}} disabled={!sensor.connected}>
+            Disconnect
+          </button>
+        </div>
+      ))}
+    </div>
+  )
 }
