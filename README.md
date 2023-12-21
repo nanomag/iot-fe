@@ -1,3 +1,13 @@
+# IOT Sensors
+
+> Note: The server port is `3000`.
+
+## Run client
+
+1. Go to `client` folder
+2. Run `npm install`
+3. Run `npm run start`
+
 ## Task
 
 Your task is to create a front-end UI displaying various Internet of Things (IoT) sensors based on data provided through a Web Socket endpoint.
