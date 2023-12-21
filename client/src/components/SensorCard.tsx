@@ -1,4 +1,4 @@
-import { Sensor } from '../types'
+import type { Sensor } from '../types'
 import './SensorCard.css'
 
 type SensorCardProps = {

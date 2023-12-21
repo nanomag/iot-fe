@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import ToggleButton from './components/ToggleButton'
 import SensorCard from './components/SensorCard'
-import { Sensor } from './types'
+import type { Sensor } from './types'
 import './App.css'
 
 export default function App() {
