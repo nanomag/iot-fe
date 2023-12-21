@@ -49,5 +49,13 @@ The Web Socket endpoint accepts the following messages, where `id` is the sensor
 ## Questions
 
 - What aspect of this exercise did you find most interesting?
+
+Creating the WebSocket client and handling all the events in the right way.
+
 - What did you find most cumbersome to do?
+
+It wasn't complicated, but it took something to figure out how to add or update an existing sensor correctly after triggering the connect and disconnect actions.
+
 - How can we further improve the user experience?
+
+Preserve the last value after disconnecting the sensor. Create categories based on the type of sensor. Store the data to avoid losing data. Show an indicator per sensor to know if is a bad, normal, or good value.
