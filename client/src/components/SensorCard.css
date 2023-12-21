@@ -1,0 +1,64 @@
+.sensor-card {
+  width: 220px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin: 15px;
+  padding: 20px;
+  text-align: center;
+  background-color: #ecf0f1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sensor-card strong {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #081523;
+}
+
+.sensor-card p {
+  font-size: 16px;
+  color: #555;
+}
+
+.action-button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  transition: background-color 0.3s;
+}
+.action-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+.action-button:hover:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.connect-button {
+  background-color: #27ae60;
+}
+.connect-button:hover {
+  background-color: #188b48;
+}
+
+.disconnect-button {
+  background-color: #e74c3c;
+}
+.disconnect-button:hover {
+  background-color: #c0392b;
+}
+
+.connected {
+  color: #27ae60;
+}
+
+.disconnected {
+  color: #e74c3c;
+}
